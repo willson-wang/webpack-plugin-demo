@@ -1,10 +1,10 @@
 ## 简介（Introduction)
 
-webpack耗时统计与分析demo项目
+webpack插件使用demo
 
 ## 技术栈（Scheme）
 
-react + typescript + webpack5 + less
+react + typescript + webpack5
 
 ## 项目设计结构
 
@@ -59,7 +59,7 @@ react + typescript + webpack5 + less
 
 ### 克隆仓库
  
-git clone git@github.com:willson-wang/webpack-time-consuming.git
+git clone git@github.com:willson-wang/webpack-plugin-demo.git
  
 ### 安装依赖
  
@@ -77,12 +77,8 @@ pnpm build
 pnpm build:speed
 ```
 
-开启打印webpack各个流程耗时
+开启构建产物大小分析
 ```
-pnpm build:profile
+pnpm build:analyzer
 ```
 
-开启打印webpack 各个hook耗时
-```
-pnpm build:stats
-```
