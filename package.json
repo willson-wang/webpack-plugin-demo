@@ -6,7 +6,9 @@
   "description": "a react project build by webpack",
   "homepage": "https://willson-wang.github.io/webpack-plugin-demo",
   "scripts": {
-    "build": "rm -rf node_modules/.cache && webpack -c ./config/webpack.config.js"
+    "build": "webpack -c ./config/webpack.config.js",
+    "build:speed": "cross-env SPEED_MEASURE=true webpack -c ./config/webpack.config.js",
+    "build:analyzer": "cross-env ANALYZER=true webpack -c ./config/webpack.config.js"
   },
   "browserslist": [
     "last 3 major versions",

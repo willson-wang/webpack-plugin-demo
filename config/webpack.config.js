@@ -9,6 +9,12 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
 
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+const FriendlyErrorsWebpackPlugin = require('@soda/friendly-errors-webpack-plugin')
+
+
+
 const smp = new SpeedMeasurePlugin();
 
 const config = {
@@ -187,6 +193,7 @@ const config = {
     ]
   },
   plugins: [
+    new FriendlyErrorsWebpackPlugin(),
     new ProgressPlugin(
       {
         percentBy: 'entries',
@@ -213,18 +220,10 @@ const config = {
   },
 }
 
-if (process.env.PROFILE_DETAIL) {
-  config.infrastructureLogging = {
-    level: 'verbose',
-    debug: true
-  }
+if (process.env.ANALYZER) {
+  config.plugins.push(new BundleAnalyzerPlugin())
 }
 
-if (process.env.STATS_LOGGER) {
-  config.stats = {
-    logging: 'verbose',
-  }
-}
 
 const lastCofig = process.env.SPEED_MEASURE ? smp.wrap(config) : config
 
